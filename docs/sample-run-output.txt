@@ -1,0 +1,339 @@
+﻿
+============================================================
+  ESPRESSO QUALITY ALGORITHM -- v1 PROTOTYPE
+  Deterministic weighted-deviation scoring
+============================================================
+
+  Target recipe: 18.0g dose -> 45.0g yield
+  Brew ratio: 1:2.5 | Extraction: 28.0s
+  Pressure: 9.0 bar | Temp: 93.0C
+
+============================================================
+  SHOT #1   (simulated: good)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |         10.0 / 10.0                    |
+  |         ####################          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:  10.0  ####################
+                  v pre_infusion_duration_s: 2.43 (target: 3.0)
+
+   CONSISTENCY:  10.0  ####################
+
+    APPEARANCE:  10.0  ####################
+
+  -- KEY PARAMETERS --
+     Dose: 18.14g -> Yield: 45.0g (ratio 2.48)
+     Extraction: 29.07s | Pressure: 9.1 bar
+     Temp: 93.0C | Channeling: no
+     Crema: hue 40.82, 4.41mm thick, 113.9s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Adjust pre-infusion time: +0.6 s (current: 2.43, target: 3.0)
+
+
+============================================================
+  SHOT #2   (simulated: good)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |         10.0 / 10.0                    |
+  |         ####################          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:  10.0  ####################
+
+   CONSISTENCY:   9.9  ####################
+                  ^ time_grind_to_pull_s: 21 (target: 15)
+
+    APPEARANCE:  10.0  ####################
+
+  -- KEY PARAMETERS --
+     Dose: 17.96g -> Yield: 43.1g (ratio 2.4)
+     Extraction: 28.45s | Pressure: 9.29 bar
+     Temp: 92.95C | Channeling: no
+     Crema: hue 37.79, 4.29mm thick, 118.52s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Reduce time between grind and pull: -6 s (current: 21, target: 15)
+
+
+============================================================
+  SHOT #3   (simulated: mediocre)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          9.6 / 10.0                    |
+  |         ###################.          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:   9.7  ###################.
+                  ^ flow_rate_mean_gs: 2.25 (target: 2.0)
+
+   CONSISTENCY:   9.6  ###################.
+                  v dose_weight_g: 17.5 (target: 18.0)
+
+    APPEARANCE:   9.3  ###################.
+                  ^ crema_persistence_s: 143.98 (target: 120.0)
+                  v yield_weight_g: 41.8 (target: 45.0)
+
+  -- KEY PARAMETERS --
+     Dose: 17.5g -> Yield: 41.8g (ratio 2.39)
+     Extraction: 28.12s | Pressure: 9.17 bar
+     Temp: 93.43C | Channeling: no
+     Crema: hue 40.71, 4.46mm thick, 143.98s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Adjust dose: +0.5 g (current: 17.5, target: 18.0)
+
+
+============================================================
+  SHOT #4   (simulated: good)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          9.9 / 10.0                    |
+  |         ####################          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:  10.0  ####################
+
+   CONSISTENCY:  10.0  ####################
+
+    APPEARANCE:   9.8  ####################
+                  v yield_weight_g: 42.1 (target: 45.0)
+
+  -- KEY PARAMETERS --
+     Dose: 17.9g -> Yield: 42.1g (ratio 2.35)
+     Extraction: 29.04s | Pressure: 9.01 bar
+     Temp: 92.91C | Channeling: no
+     Crema: hue 40.39, 4.33mm thick, 113.95s persist
+
+
+============================================================
+  SHOT #5   (simulated: mediocre)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          9.4 / 10.0                    |
+  |         ###################.          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:   9.3  ###################.
+                  v brew_ratio: 2.2 (target: 2.5)
+                  v pre_infusion_duration_s: 2.37 (target: 3.0)
+
+   CONSISTENCY:   9.7  ###################.
+                  v distribution_score: 0.88 (target: 1.0)
+
+    APPEARANCE:   9.2  ##################..
+                  v yield_weight_g: 39.9 (target: 45.0)
+
+  -- KEY PARAMETERS --
+     Dose: 18.12g -> Yield: 39.9g (ratio 2.2)
+     Extraction: 26.03s | Pressure: 8.83 bar
+     Temp: 93.04C | Channeling: no
+     Crema: hue 41.33, 3.74mm thick, 134.57s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Distribute more evenly (current: 0.88, target: 1.0)
+     2. Adjust pre-infusion time: +0.6 s (current: 2.37, target: 3.0)
+
+
+============================================================
+  SHOT #6   (simulated: mediocre)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          8.8 / 10.0                    |
+  |         ##################..          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:   9.3  ###################.
+                  v extraction_time_s: 24.43 (target: 28.0)
+                  v water_temp_c: 92.39 (target: 93.0)
+
+   CONSISTENCY:   8.2  ################....
+                  v grind_size: 4.06 (target: 5.0)
+                  ^ dose_weight_g: 18.46 (target: 18.0)
+
+    APPEARANCE:   8.7  #################...
+                  ^ crema_thickness_mm: 5.17 (target: 4.0)
+
+  -- KEY PARAMETERS --
+     Dose: 18.46g -> Yield: 44.9g (ratio 2.43)
+     Extraction: 24.43s | Pressure: 8.72 bar
+     Temp: 92.39C | Channeling: YES
+     Crema: hue 41.58, 5.17mm thick, 109.48s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Adjust grind: +0.9 steps (current: 4.06, target: 5.0)
+     2. Adjust dose: -0.5 g (current: 18.46, target: 18.0)
+     3. Adjust water temperature: +0.6 C (current: 92.39, target: 93.0)
+
+
+============================================================
+  SHOT #7   (simulated: good)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |         10.0 / 10.0                    |
+  |         ####################          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:  10.0  ####################
+                  v extraction_time_s: 25.98 (target: 28.0)
+
+   CONSISTENCY:  10.0  ####################
+
+    APPEARANCE:   9.9  ####################
+                  ^ crema_hue_mean: 43.34 (target: 40.0)
+
+  -- KEY PARAMETERS --
+     Dose: 18.1g -> Yield: 45.1g (ratio 2.49)
+     Extraction: 25.98s | Pressure: 8.92 bar
+     Temp: 93.05C | Channeling: no
+     Crema: hue 43.34, 3.73mm thick, 123.79s persist
+
+
+============================================================
+  SHOT #8   (simulated: good)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          9.9 / 10.0                    |
+  |         ####################          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:   9.9  ####################
+                  ^ water_temp_c: 93.67 (target: 93.0)
+
+   CONSISTENCY:   9.9  ####################
+                  v tamp_pressure_kg: 18.35 (target: 20.0)
+
+    APPEARANCE:  10.0  ####################
+
+  -- KEY PARAMETERS --
+     Dose: 17.87g -> Yield: 44.3g (ratio 2.48)
+     Extraction: 29.25s | Pressure: 9.1 bar
+     Temp: 93.67C | Channeling: no
+     Crema: hue 39.08, 4.02mm thick, 106.24s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Adjust water temperature: -0.7 C (current: 93.67, target: 93.0)
+     2. Adjust tamp pressure: +1.6 kg (current: 18.35, target: 20.0)
+
+
+============================================================
+  SHOT #9   (simulated: mediocre)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          9.4 / 10.0                    |
+  |         ###################.          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:   9.2  ##################..
+                  ^ water_temp_c: 94.29 (target: 93.0)
+                  ^ pressure_stability: 0.15 (target: 0.0)
+                  ^ pre_infusion_duration_s: 3.68 (target: 3.0)
+
+   CONSISTENCY:   9.3  ###################.
+                  ^ pressure_stability: 0.15 (target: 0.0)
+                  v dose_weight_g: 17.6 (target: 18.0)
+
+    APPEARANCE:  10.0  ####################
+
+  -- KEY PARAMETERS --
+     Dose: 17.6g -> Yield: 44.9g (ratio 2.55)
+     Extraction: 28.21s | Pressure: 9.25 bar
+     Temp: 94.29C | Channeling: YES
+     Crema: hue 40.88, 3.82mm thick, 122.02s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Adjust water temperature: -1.3 C (current: 94.29, target: 93.0)
+     2. Adjust dose: +0.4 g (current: 17.6, target: 18.0)
+     3. Adjust pre-infusion time: -0.7 s (current: 3.68, target: 3.0)
+
+
+============================================================
+  SHOT #10   (simulated: bad)
+============================================================
+
+  +-- COMPOSITE SCORE --------------------------+
+  |                                            |
+  |          6.4 / 10.0                    |
+  |         #############.......          |
+  |                                            |
+  +--------------------------------------------+
+
+    EXTRACTION:   7.6  ###############.....
+                  ^ extraction_time_s: 32.1 (target: 28.0)
+                  ^ pre_infusion_duration_s: 4.52 (target: 3.0)
+                  v water_temp_c: 91.97 (target: 93.0)
+
+   CONSISTENCY:   6.0  ############........
+                  ^ dose_weight_g: 19.11 (target: 18.0)
+                  v distribution_score: 0.8 (target: 1.0)
+                  ^ pressure_stability: 0.2 (target: 0.0)
+
+    APPEARANCE:   4.6  #########...........
+                  ^ crema_thickness_mm: 5.87 (target: 4.0)
+                  v crema_hue_mean: 31.12 (target: 40.0)
+                  ^ crema_persistence_s: 142.5 (target: 120.0)
+
+  -- KEY PARAMETERS --
+     Dose: 19.11g -> Yield: 46.1g (ratio 2.41)
+     Extraction: 32.1s | Pressure: 8.53 bar
+     Temp: 91.97C | Channeling: no
+     Crema: hue 31.12, 5.87mm thick, 142.5s persist
+
+  -- WHAT TO CHANGE NEXT --
+     1. Adjust dose: -1.1 g (current: 19.11, target: 18.0)
+     2. Distribute more evenly (current: 0.8, target: 1.0)
+     3. Adjust pre-infusion time: -1.5 s (current: 4.52, target: 3.0)
+
+
+============================================================
+  SHIFT SUMMARY
+============================================================
+  Shots pulled:     10
+  Average score:    9.3 / 10.0
+  Best shot:        10.0
+  Worst shot:       6.4
+  Std deviation:    1.05
+  Scores > 8.0:     9/10
+  Scores < 5.0:     0/10
+
+  Score distribution:
+  Shot  1: 10.0  ##############################
+  Shot  2: 10.0  ##############################
+  Shot  3:  9.6  #############################
+  Shot  4:  9.9  ##############################
+  Shot  5:  9.4  ############################
+  Shot  6:  8.8  ##########################
+  Shot  7: 10.0  ##############################
+  Shot  8:  9.9  ##############################
+  Shot  9:  9.4  ############################
+  Shot 10:  6.4  ###################
+

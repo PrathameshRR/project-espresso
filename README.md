@@ -48,6 +48,8 @@ Detailed briefs on each aspect of the system:
 | [Data Collection](docs/05-data-collection-strategy.md) | Data requirements and annotation workflow |
 | [Feedback Loop](docs/06-feedback-loop.md) | How the model improves over time |
 | [Open Questions](docs/07-open-questions.md) | Decisions to make before building |
+| [Running the Algorithm](docs/08-running-the-algorithm.md) | How to run, customize, and interpret output |
+| [Sample Run Output](docs/sample-run-output.txt) | Full output from a 10-shot simulation |
 
 ## Roadmap
 
